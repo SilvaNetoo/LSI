@@ -1,0 +1,66 @@
+.dashbord {
+    margin-top: .5%;
+    width: 80%;
+    background-color: #fff;
+    height: 550px;
+}
+
+.titulo {
+    text-align: center;
+    color: #065463;
+    margin-top: 3%;
+    font-size: 50px;
+}
+
+.estilo {
+    width: 33.3%;
+    height: 8px;
+    background-color: #ff0040;
+    margin-left: 33.3%;
+}
+
+.icone1{
+    width: 90px;
+    margin-left: 30%;
+    margin-top: 30px;
+    display: inline-block;
+}
+
+.icone2{
+    width: 80px;
+    margin-left: 20%;
+    margin-top: 30px;
+    display: inline-block;
+}
+.icone3{
+    width: 80px;
+    margin-left:30%;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.icone4 {
+    width: 80px;
+    margin-left: 20%;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.texto{
+    color: #065463; 
+    margin-top: 20px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+#adicionar{
+    margin-left: 10px;
+}
+
+#listar{
+    margin-left: 30px;
+}
+
+#gerais{
+    margin-left: 20px;
+}
