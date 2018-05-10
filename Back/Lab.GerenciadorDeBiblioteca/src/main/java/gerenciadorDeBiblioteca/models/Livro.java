@@ -1,8 +1,17 @@
 package gerenciadorDeBiblioteca.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.hibernate.tuple.GeneratedValueGeneration;
+
+@Entity
 public class Livro {
 	
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String nome;
 	private String autor;
