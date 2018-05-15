@@ -37,7 +37,7 @@ public class AlunoService {
 	}
 	
 	
-	public List<Aluno> buscarLivros(){
+	public List<Aluno> buscarAlunos(){
 		return (List<Aluno>) repository.findAll();
 		
 	}
