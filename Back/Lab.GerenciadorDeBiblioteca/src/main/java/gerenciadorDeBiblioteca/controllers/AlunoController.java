@@ -26,7 +26,7 @@ public class AlunoController {
 	private AlunoService service;
 	
 	
-	@GetMapping(value = "/{idArg}")
+	@GetMapping(value = "/{id}")
 	public ResponseEntity<Aluno> buscar(@PathVariable Long id){
 		
 		
@@ -58,9 +58,7 @@ public class AlunoController {
 	
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<String> delete(@PathVariable Long id){
-		
-		Aluno aluno = service.buscaById(id);
-		service.deleteAluno(aluno);
+		service.deleteAluno(id);
 		return new ResponseEntity<String>(HttpStatus.OK);
 		
 	}

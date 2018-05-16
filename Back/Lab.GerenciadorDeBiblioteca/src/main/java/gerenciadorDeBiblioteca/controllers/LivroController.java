@@ -24,7 +24,7 @@ public class LivroController {
 	private LivroService service;
 	
 	
-	@GetMapping(value = "/{idArg}")
+	@GetMapping(value = "/{id}")
 	public ResponseEntity<Livro> buscar(@PathVariable Long id){
 		
 		

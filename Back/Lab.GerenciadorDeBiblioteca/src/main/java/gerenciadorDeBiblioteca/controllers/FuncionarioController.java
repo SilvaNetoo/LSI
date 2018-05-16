@@ -2,6 +2,7 @@ package gerenciadorDeBiblioteca.controllers;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,11 +20,11 @@ import gerenciadorDeBiblioteca.service.FuncionarioService;
 @RequestMapping(value = "/funcionarios")
 public class FuncionarioController {
 
-	
+	@Autowired
 	private FuncionarioService service;
 	
 	
-	@GetMapping(value = "/{idArg}")
+	@GetMapping(value = "/{id}")
 	public ResponseEntity<Funcionario> buscar(@PathVariable Long id){
 		
 		
