@@ -26,8 +26,8 @@ public class AlunoService {
 		
 	}
 	
-	public void deleteAluno(Aluno aluno){
-		repository.delete(aluno);
+	public void deleteAluno(Long id){
+		repository.deleteById(id);
 		
 	}
 	
