@@ -65,3 +65,11 @@
 #gerais{
     margin-left: 20px;
 }
+
+.btn-outline-info{
+    margin-left: 93%;
+}
+
+.btn-outline-info > img{
+    width: 70%;
+}

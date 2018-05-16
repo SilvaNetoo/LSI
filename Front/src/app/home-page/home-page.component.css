@@ -13,6 +13,7 @@
 }
 
 .estilo {
+    margin-top: 7%;
     width: 33.3%;
     height: 8px;
     background-color: #ff0040;
@@ -46,10 +47,18 @@
     display: inline-block;
 }
 
-.texto{
+.texto1{
+    width: 175%;
     color: #065463; 
     margin-top: 20px;
-    margin-left: 15px;
+    margin-left: 26px;
+    cursor: pointer;
+}
+
+.texto2{
+    width: 175%;
+    color: #065463; 
+    margin-top: 20px;
     cursor: pointer;
 }
 

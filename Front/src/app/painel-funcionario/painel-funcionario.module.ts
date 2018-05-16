@@ -1,23 +1,23 @@
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { ListaAcervoFuncionarioComponent } from './lista-acervo-funcionario/lista-acervo-funcionario.component';
+import { ListaAcervoFuncionarioModule } from './lista-acervo-funcionario/lista-acervo-funcionario.module';
 import { ListaAlunoFunionarioComponent } from './lista-aluno-funcionario/lista-aluno-funcionario.component';
 import { ListaAlunoFuncionarioModule } from './lista-aluno-funcionario/lista-aluno-funcionario.module';
 import { MenuComponent } from './menu/menu.component';
-import { ExcluirLivroComponent } from './lista-acervo-funcionario/excluir-livro/excluir-livro.component';
 
 @NgModule({
   imports: [
     CommonModule,
     ListaAlunoFuncionarioModule,
+    ListaAcervoFuncionarioModule,
     RouterModule
   ],
   declarations: [
     ListaAlunoFunionarioComponent,
     ListaAcervoFuncionarioComponent,
-    MenuComponent,
-    ExcluirLivroComponent,
+    MenuComponent
   ]
 })
 export class PainelFuncionarioModule { }

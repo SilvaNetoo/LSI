@@ -11,17 +11,30 @@ export class AppLivroService {
   //Array de livros mocado para testes
   livrosTemp = [
     {
-      nome:'livro1'
+      autor: 'Tanenbaum',
+      isbn: '435435',
+      nome:'Sistemas operacionais modernos'
     },
     {
-      nome:'livro2'
+      autor: 'Coulouris',
+      isbn: '321321',
+      nome:'Sistemas distribuídos'
     },
     {
-      nome:'livro3'
+      autor: 'Daniel Abella',
+      isbn: '099843',
+      nome:'Arrochado e avexado metodologia ágil'
     },
     {
-      nome:'livro4'
+      autor: 'Paolo Coelho',
+      isbn: '099843',
+      nome:'O Alquimista'
     },
+    {
+      autor: 'Jorge Amado',
+      isbn: '099843',
+      nome:'Mar Morto'
+    }
   ]
 
   headers: Headers = new Headers({'Content-Type':'application/json'});

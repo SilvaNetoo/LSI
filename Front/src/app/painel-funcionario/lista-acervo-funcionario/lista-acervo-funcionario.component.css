@@ -59,13 +59,34 @@ span :focus{
 }
 #titulo-tabela{
     color: #065463;
-    margin-top: 50px;
+    margin-top: 8%;
+    margin-bottom: 0%;
 }
 #botao-icones{
     border: 0;
 }
+
+.cadastrar-tamanho{
+    width: 36px;
+    margin-left: 39%;
+    margin-right: 61%;
+}
+
+#cadastrar-button{
+    border: 0;
+}
+
 .botao-cadastrar{
     width: 30px;
     margin: 20% auto;
     margin-bottom: 3%;
+}
+
+.btn-outline-info{
+    margin-left: 72%;
+    margin-top: 25%;
+}
+
+.btn-outline-info > img{
+    width: 70%;
 }

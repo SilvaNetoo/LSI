@@ -1,3 +1,5 @@
+import { ExcluirLivroComponent } from './painel-funcionario/lista-acervo-funcionario/excluir-livro/excluir-livro.component';
+import { CadastraLivroComponent } from './painel-funcionario/lista-acervo-funcionario/cadastra-livro/cadastra-livro.component';
 import { MenuComponent } from './painel-funcionario/menu/menu.component';
 import { PainelFuncionarioComponent } from './painel-funcionario/painel-funcionario.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -23,7 +25,14 @@ const APP_ROUTES : Routes =[
     { path: 'login-funcionario', component: LoginFuncionarioComponent},
     { path: 'painel-funcionario', component: PainelFuncionarioComponent, children:[
         { path: '', component: MenuComponent},
-        { path: 'lista-acervo-funcionario',component: ListaAcervoFuncionarioComponent},
+        { path: 'lista-acervo-funcionario',component: ListaAcervoFuncionarioComponent, children:[
+            {
+                path: 'cadastro-livro', component: CadastraLivroComponent
+            },
+            {
+                path: 'excluir-livro', component: ExcluirLivroComponent
+            }
+        ]},
         { path: 'lista-aluno-funcionario', component: ListaAlunoFunionarioComponent, children:[
             { 
                 path: 'cadastro', component:CadastraAlunoComponent
