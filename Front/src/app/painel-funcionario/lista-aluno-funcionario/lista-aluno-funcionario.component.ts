@@ -1,6 +1,5 @@
-import { Usuario } from './../models/usuario.model';
-import { AppUsuarioService } from './../providers/app-usuario.service';
 import { Component, OnInit } from '@angular/core';
+import { AppAlunoService } from '../../providers/app-aluno.service';
 
 @Component({
   selector: 'app-lista-aluno-funcionario',
@@ -11,7 +10,7 @@ export class ListaAlunoFunionarioComponent implements OnInit {
 
   alunos;
 
-  constructor(private servico: AppUsuarioService) {
+  constructor(private servico: AppAlunoService) {
     
   }
 
@@ -20,10 +19,6 @@ export class ListaAlunoFunionarioComponent implements OnInit {
 
   ngDoCheck(){
     this.alunos = this.servico.getAll();
-    console.log(this.alunos);
   }
-
-  excluir(){
-    // this.servic
-  }
+  
 }

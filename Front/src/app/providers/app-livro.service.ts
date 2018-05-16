@@ -1,10 +1,11 @@
-import { Http, Headers } from '@angular/http';
-import { Livro } from './../models/livro.model';
 import { Injectable } from '@angular/core';
+import { Headers, Http } from '@angular/http';
+import { Livro } from './../models/livro.model';
 
 @Injectable()
 export class AppLivroService {
 
+  contador: number = 0;
   livros: Array<Livro> = new Array<Livro>();
 
   //Array de livros mocado para testes
@@ -28,10 +29,13 @@ export class AppLivroService {
   constructor(private http: Http) { }
 
   post(livro:Livro){
+    livro.id = this.contador++;
     this.livros.push(livro);
-    // this.http.post(`${BASE_LINK}`,usuario,{headers:this.headers}).map(
+
+    // WEB
+    // this.http.post(`${BASE_LINK}`,livro,{headers:this.headers}).map(
     //   res=>{
-    //   return res.json();
+    //     return res.json();
     //   },
     //   err=>{
     //     return err;
@@ -39,10 +43,11 @@ export class AppLivroService {
   }
 
   getAll(){
-    // return certo abaixo
+    // return correto abaixo
     // return this.livros;
-    //return para teste
-    return this.livrosTemp;
+    // return temporário
+    return this.livros;
+    // WEB
     // this.http.get(`${BASE_LINK}`,{headers: this.headers}).map(
     //   res=>{
     //   return res.json();
@@ -51,24 +56,27 @@ export class AppLivroService {
     // })
   }
 
-  getLivroByName(){
+  deletLivroByName(id: number){
     let l;
     for (let i = 0; i < this.livros.length; i++) {
-      const l = this.livros[i];
-    }
-    return l;
-  }
-
-  deletLivroByName(nome: string){
-    let l;
-    for (let i = 0; i < this.livros.length; i++) {
-      if(nome === this.livros[i].nome){
-        l = this.livros[i].nome;
+      if(id == this.livros[i].id){
+        const index: number = this.livros.indexOf(this.livros[i]);
+        if (index !== -1) {
+          this.livros.splice(index, 1);
+        }  
       }else{
-        l = 'Livro não encontrado!'; 
+        l = 'Usuário não encontrado!';
       }
     }
     return l;
-  }
 
+    // //Web
+    // this.http.delete(`${BASE_LINK}/${email}`,{ headers:this.headers })
+    // .map(res=>{
+    //   return res.json();
+    // },
+    // err=>{
+    //   return err;
+    // })
+  }
 }

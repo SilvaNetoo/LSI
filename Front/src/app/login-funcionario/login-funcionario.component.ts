@@ -32,7 +32,7 @@ export class LoginFuncionarioComponent implements OnInit {
   onSubmit(){
     for (let i = 0; i < this.usuarios.length; i++) {
       if(this.usuario.email === this.usuarios[i].email && this.usuario.senha === this.usuarios[i].senha){
-        this.router.navigate(['/lista-aluno-funcionario'])
+        this.router.navigate(['/painel-funcionario'])
       }
     }
   }

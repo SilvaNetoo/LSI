@@ -1,6 +1,6 @@
-import { AppUsuarioService } from './../providers/app-usuario.service';
-import { Usuario } from './../models/usuario.model';
 import { Component, OnInit } from '@angular/core';
+import { Aluno } from '../../../models/aluno.model';
+import { AppAlunoService } from '../../../providers/app-aluno.service';
 
 @Component({
   selector: 'app-cadastra-aluno',
@@ -9,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastraAlunoComponent implements OnInit {
 
-  aluno: Usuario = new Usuario();
+  aluno: Aluno = new Aluno();
 
-  constructor(private service: AppUsuarioService) { }
+  constructor(private service: AppAlunoService) { }
 
   ngOnInit() {
   }
@@ -19,7 +19,7 @@ export class CadastraAlunoComponent implements OnInit {
   onSubmit(){
     console.log(this.aluno);
     this.service.post(this.aluno);
-    this.aluno = new Usuario();
+    this.aluno = new Aluno();
   }
 
 }

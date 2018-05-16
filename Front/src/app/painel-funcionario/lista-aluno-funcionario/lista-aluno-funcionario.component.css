@@ -80,3 +80,12 @@ span :focus{
     margin: 20% auto;
     margin-bottom: 3%;
 }
+
+.btn-outline-info{
+    margin-left: 72%;
+    margin-top: 25%;
+}
+
+.btn-outline-info > img{
+    width: 70%;
+}
