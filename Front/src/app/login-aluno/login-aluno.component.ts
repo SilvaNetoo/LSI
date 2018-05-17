@@ -1,7 +1,7 @@
+import { AppAlunoService } from './../providers/app-aluno.service';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../models/usuario.model';
 import { Router } from '@angular/router';
-import { AppUsuarioService } from '../providers/app-usuario.service';
 
 @Component({
   selector: 'app-login-aluno',
@@ -26,7 +26,7 @@ export class LoginAlunoComponent implements OnInit {
   ]
 
   constructor(
-    private servico: AppUsuarioService,
+    private servico: AppAlunoService,
     private router: Router
   ) { }
 

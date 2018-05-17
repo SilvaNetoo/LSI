@@ -1,5 +1,12 @@
 <div class="container">
-  <h3 id="titulo-tabela">Alunos</h3>
+  <div class="row">
+    <div class="col-md-9">
+      <h3 id="titulo-tabela">Alunos</h3>
+    </div>
+    <div class="col-md-3">
+      <button type="button" routerLink="../" class="btn btn-outline-info"><img src="assets/seta-voltar.svg" alt=""></button>
+    </div>
+  </div>
   <table class="table">
     <thead>
       <th scope="col">Nome do aluno</th>
@@ -10,7 +17,7 @@
         <td class="centraliza-icones">{{item.nome}}</td>
         <td>
           <a id="botao-icones">
-            <img class="editar-tamanho" routerLink="./excluir" [queryParams]="{key:item.nome}" data-toggle="modal" data-target="#exampleModal" src="assets/delet.svg" alt="">
+            <img class="editar-tamanho" routerLink="./excluir" [queryParams]="{key:item.id}" data-toggle="modal" data-target="#exampleModal" src="assets/delet.svg" alt="">
           </a>
         </td>
       </tr>
@@ -18,7 +25,6 @@
   </table>
   <button id="cadastrar-button" routerLink="./cadastro" type="button" class="btn btn-primary btn-right" data-toggle="modal" data-target="#exampleModal">Cadastrar</button>
 </div>
-
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

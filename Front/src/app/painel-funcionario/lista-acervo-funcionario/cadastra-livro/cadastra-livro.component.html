@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Cadastro de Aluno</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<form class="form-group" name="form" #f="ngForm" (ngSubmit)="f.submitted && onSubmit()">
+  <p>Nome</p>
+    <div class="input-group mb-3">
+      <input type="text" id="nome" [(ngModel)]="livro.nome" name="nome" class="form-control" aria-label="nome" placeholder="Nome do livro" required>
+    </div>
+  <p>Autor</p>
+    <div class="input-group mb-3">
+      <input type="text" id="autor" [(ngModel)]="livro.autor" name="autor"  class="form-control" aria-label="autor" placeholder="Nome do Autor" required>
+    </div>
+  <p>Isbn</p>
+    <div class="input-group mb-3">
+      <input type="text" id="isbn" [(ngModel)]="livro.isbn" name="isbn" class="form-control" aria-label="isbn" placeholder="Código único do livro" required>
+    </div>
+  
+  <button id="button" type="submit" class="btn btn-light"><img src="assets/confirm.svg" class="confirmar"></button>
+</form>

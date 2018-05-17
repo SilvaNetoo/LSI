@@ -1,5 +1,4 @@
 import { AppLivroService } from './../providers/app-livro.service';
-import { AppUsuarioService } from './../providers/app-usuario.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

@@ -1,3 +1,4 @@
+import { Aluno } from './../models/aluno.model';
 import { BASE_LINK } from './../const';
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
@@ -5,9 +6,10 @@ import 'rxjs/add/operator/map';
 import { Usuario } from './../models/usuario.model';
 
 @Injectable()
-export class AppUsuarioService {
+export class AppAlunoService {
 
-  usuarios: Array<Usuario> = new Array<Usuario>();
+  contador:number = 0;
+  alunos: Array<Aluno> = new Array<Aluno>();
 
     //Array de alunos mocado para testes
     alunoTemp = [
@@ -37,11 +39,12 @@ export class AppUsuarioService {
 
   constructor(private http: Http) { }
 
-  post(usuario:Usuario){
-    this.usuarios.push(usuario);
+  post(aluno:Aluno){
+    aluno.id = this.contador++;
+    this.alunos.push(aluno);
 
     // WEB
-    // this.http.post(`${BASE_LINK}`,usuario,{headers:this.headers}).map(
+    // this.http.post(`${BASE_LINK}`,aluno,{headers:this.headers}).map(
     //   res=>{
     //     return res.json();
     //   },
@@ -52,9 +55,9 @@ export class AppUsuarioService {
 
   getAll(){
     // return correto abaixo
-    // return this.usuarios;
+    // return this.alunos;
     // return temporário
-    return this.usuarios;
+    return this.alunos;
     // WEB
     // this.http.get(`${BASE_LINK}`,{headers: this.headers}).map(
     //   res=>{
@@ -64,13 +67,14 @@ export class AppUsuarioService {
     // })
   }
 
-  deletUsuarioByName(nome: string){
+  deletUsuarioByName(id: number){
     let l;
-    console.log('chegou no delete')
-    console.log(nome)
-    for (let i = 0; i < this.usuarios.length; i++) {
-      if(nome === this.usuarios[i].nome){
-        this.usuarios.splice(i)
+    for (let i = 0; i < this.alunos.length; i++) {
+      if(id == this.alunos[i].id){
+        const index: number = this.alunos.indexOf(this.alunos[i]);
+        if (index !== -1) {
+          this.alunos.splice(index, 1);
+        }  
       }else{
         l = 'Usuário não encontrado!';
       }

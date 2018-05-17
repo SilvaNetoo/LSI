@@ -1,5 +1,5 @@
-import { AppLivroService } from './../providers/app-livro.service';
 import { Component, OnInit } from '@angular/core';
+import { AppLivroService } from '../../providers/app-livro.service';
 
 @Component({
   selector: 'app-lista-acervo-funcionario',

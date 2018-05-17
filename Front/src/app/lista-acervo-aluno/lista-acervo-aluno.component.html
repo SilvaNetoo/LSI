@@ -1,18 +1,24 @@
 <div class="container">
-<h3 id="titulo-tabela">Acervo</h3>
+  <div class="row">
+    <div class="col-md-9">
+      <h3 id="titulo-tabela">Acervo</h3>
+    </div>
+    <div class="col-md-3">
+      <button type="button" routerLink="../" class="btn btn-outline-info"><img src="assets/seta-voltar.svg" alt=""></button>
+    </div>
   <table class="table">
     <thead>
       <th scope="col">Nome do livro</th>
-      <th scope="col">Locar</th>
+      <th scope="col">ID</th>
+      <th scope="col">Isbn</th>
+      <th scope="col">Autor</th>
     </thead>
     <tbody>
-      <tr *ngFor="let item of livros">
-        <td class="centraliza-icones">{{item.nome}}</td>
-        <td>
-          <a id="botao-icones">
-            <img class="editar-tamanho" routerLink="cadastro" [queryParams]="{key:item.key}" data-toggle="modal" data-target="#exampleModal" src="assets/notebook.svg" alt="">
-          </a>
-        </td>
+      <tr *ngFor="let item of servico.livrosTemp; let i = index">
+          <td class="centraliza-icones">{{item.nome}}</td>
+        <td class="centraliza-icones">{{i}}</td>
+        <td class="centraliza-icones">{{item.isbn}}</td>
+        <td class="centraliza-icones">{{item.autor}}</td>
       </tr>
     </tbody>
   </table>
