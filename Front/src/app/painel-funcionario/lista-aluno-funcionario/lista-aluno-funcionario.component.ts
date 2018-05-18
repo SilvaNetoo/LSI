@@ -17,8 +17,14 @@ export class ListaAlunoFunionarioComponent implements OnInit {
   ngOnInit() {
   }
 
-  ngDoCheck(){
-    this.alunos = this.servico.getAll();
+  ngOnChanges(){
+    this.alunos = this.servico.getAll().subscribe(res=>{
+      console.log('Sucesso get alunos');
+      return res;
+    }, err=>{
+      console.log('Fracasso get alunos')
+      return err;
+    });
   }
   
 }

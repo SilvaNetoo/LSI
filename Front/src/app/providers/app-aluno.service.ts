@@ -41,53 +41,58 @@ export class AppAlunoService {
 
   post(aluno:Aluno){
     aluno.id = this.contador++;
-    this.alunos.push(aluno);
-
+    // this.alunos.push(aluno);
+    console.log(aluno)
     // WEB
-    // this.http.post(`${BASE_LINK}`,aluno,{headers:this.headers}).map(
-    //   res=>{
-    //     return res.json();
-    //   },
-    //   err=>{
-    //     return err;
-    //   })
+    return this.http.post(`${BASE_LINK}/alunos/`,aluno,{headers:this.headers})
+    .map(
+      res=>{
+        console.log('sucesso!')
+        console.log(res)
+        return res.json();
+      },
+      err=>{
+        console.log('fracasso!')
+        console.log(err)
+        return err;
+      })
   }
 
   getAll(){
     // return correto abaixo
     // return this.alunos;
     // return temporário
-    return this.alunos;
+    // return this.alunos;
     // WEB
-    // this.http.get(`${BASE_LINK}`,{headers: this.headers}).map(
-    //   res=>{
-    //   return res.json();
-    // },err=>{
-    //   return err;
-    // })
+    return this.http.get(`${BASE_LINK}/alunos/`,{headers: this.headers}).map(
+      res=>{
+      return res.json();
+    },err=>{
+      return err;
+    })
   }
 
   deletUsuarioByName(id: number){
-    let l;
-    for (let i = 0; i < this.alunos.length; i++) {
-      if(id == this.alunos[i].id){
-        const index: number = this.alunos.indexOf(this.alunos[i]);
-        if (index !== -1) {
-          this.alunos.splice(index, 1);
-        }  
-      }else{
-        l = 'Usuário não encontrado!';
-      }
-    }
-    return l;
+    // let l;
+    // for (let i = 0; i < this.alunos.length; i++) {
+    //   if(id == this.alunos[i].id){
+    //     const index: number = this.alunos.indexOf(this.alunos[i]);
+    //     if (index !== -1) {
+    //       this.alunos.splice(index, 1);
+    //     }  
+    //   }else{
+    //     l = 'Usuário não encontrado!';
+    //   }
+    // }
+    // return l;
 
     // //Web
-    // this.http.delete(`${BASE_LINK}/${email}`,{ headers:this.headers })
-    // .map(res=>{
-    //   return res.json();
-    // },
-    // err=>{
-    //   return err;
-    // })
+    this.http.delete(`${BASE_LINK}/${id}/`,{ headers:this.headers })
+    .map(res=>{
+      return res.json();
+    },
+    err=>{
+      return err;
+    })
   }
 }
