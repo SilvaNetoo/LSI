@@ -26,8 +26,8 @@ public class AlunoService {
 		
 	}
 	
-	public void deleteAluno(Aluno aluno){
-		repository.delete(aluno);
+	public void deleteAluno(Long id){
+		repository.deleteById(id);
 		
 	}
 	
@@ -37,7 +37,7 @@ public class AlunoService {
 	}
 	
 	
-	public List<Aluno> buscarLivros(){
+	public List<Aluno> buscarAlunos(){
 		return (List<Aluno>) repository.findAll();
 		
 	}
