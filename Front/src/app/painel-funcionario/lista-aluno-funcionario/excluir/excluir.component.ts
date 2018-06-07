@@ -1,6 +1,6 @@
-import { AppUsuarioService } from './../providers/app-usuario.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AppAlunoService } from '../../../providers/app-aluno.service';
 
 @Component({
   selector: 'app-excluir',
@@ -9,15 +9,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ExcluirComponent implements OnInit {
 
-  usuarioNome:string;
+  usuarioId:number;
   constructor(
-    private servico: AppUsuarioService,
+    private servico: AppAlunoService,
     private route: ActivatedRoute
   ) {
     this.route.queryParams.subscribe(
       (queryParams:any)=>{
         if(queryParams){
-          this.usuarioNome = queryParams['key'];
+          this.usuarioId = queryParams['key'];
+          console.log(this.usuarioId);
           // this.usuario = findUser(usuarioKey)
         }
       }
@@ -28,9 +29,7 @@ export class ExcluirComponent implements OnInit {
   }
 
   excluirUser(){
-    console.log("chamou o excluir")
-    console.log(this.usuarioNome)
-    this.servico.deletUsuarioByName(this.usuarioNome);
+    this.servico.deletUsuarioByName(this.usuarioId);
   }
 
 }

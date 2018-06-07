@@ -13,13 +13,8 @@ export class LoginFuncionarioComponent implements OnInit {
 
   usuarios = [
     {
-      nome:'funcionario1',
-      email:'funcionario1@email1.com',
-      senha:'123456'
-    },
-    {
-      nome:'funcionario2',
-      email:'funcionario2@email2.com',
+      nome:'funcionario',
+      email:'funcionario@email.com',
       senha:'123456'
     }
   ]
@@ -32,7 +27,7 @@ export class LoginFuncionarioComponent implements OnInit {
   onSubmit(){
     for (let i = 0; i < this.usuarios.length; i++) {
       if(this.usuario.email === this.usuarios[i].email && this.usuario.senha === this.usuarios[i].senha){
-        this.router.navigate(['/lista-aluno-funcionario'])
+        this.router.navigate(['/painel-funcionario'])
       }
     }
   }

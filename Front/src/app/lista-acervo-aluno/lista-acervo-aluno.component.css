@@ -32,7 +32,6 @@ tr:nth-child(even) {
     background-color: #fff;
 }
 th{
-    width: 100%;
     border-top: none;
     color: #43A2B4
 }
@@ -68,4 +67,13 @@ span :focus{
     width: 30px;
     margin: 20% auto;
     margin-bottom: 3%;
+}
+
+.btn-outline-info{
+    margin-left: 72%;
+    margin-top: 25%;
+}
+
+.btn-outline-info > img{
+    width: 70%;
 }

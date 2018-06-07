@@ -1,7 +1,7 @@
+import { AppAlunoService } from './../providers/app-aluno.service';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../models/usuario.model';
 import { Router } from '@angular/router';
-import { AppUsuarioService } from '../providers/app-usuario.service';
 
 @Component({
   selector: 'app-login-aluno',
@@ -14,19 +14,14 @@ export class LoginAlunoComponent implements OnInit {
 
   usuarios = [
     {
-      nome:'aluno1',
-      email:'aluno1@email.com',
-      senha:'123456'
-    },
-    {
-      nome:'aluno2',
-      email:'aluno2@email.com',
+      nome:'aluno',
+      email:'aluno@email.com',
       senha:'123456'
     }
   ]
 
   constructor(
-    private servico: AppUsuarioService,
+    private servico: AppAlunoService,
     private router: Router
   ) { }
 

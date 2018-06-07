@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import gerenciadorDeBiblioteca.models.Aluno;
 import gerenciadorDeBiblioteca.service.AlunoService;
 
-@CrossOrigin()
+@CrossOrigin
 @RestController
 @RequestMapping(value="/alunos")
 public class AlunoController {

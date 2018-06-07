@@ -1,74 +1,52 @@
-import { Http, Headers } from '@angular/http';
-import { Livro } from './../models/livro.model';
 import { Injectable } from '@angular/core';
+import { Headers, Http } from '@angular/http';
+import { Livro } from './../models/livro.model';
+import { BASE_LINK } from '../const';
+
+const LIVRO_URN = '/livros';
 
 @Injectable()
 export class AppLivroService {
 
+  contador:number = 0;
   livros: Array<Livro> = new Array<Livro>();
-
-  //Array de livros mocado para testes
-  livrosTemp = [
-    {
-      nome:'livro1'
-    },
-    {
-      nome:'livro2'
-    },
-    {
-      nome:'livro3'
-    },
-    {
-      nome:'livro4'
-    },
-  ]
 
   headers: Headers = new Headers({'Content-Type':'application/json'});
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) {
+    this.getAll();
+  }
 
   post(livro:Livro){
-    this.livros.push(livro);
-    // this.http.post(`${BASE_LINK}`,usuario,{headers:this.headers}).map(
-    //   res=>{
-    //   return res.json();
-    //   },
-    //   err=>{
-    //     return err;
-    //   })
+    livro.id = this.contador++;
+    return this.http.post(`${BASE_LINK}${LIVRO_URN}/`,livro,{headers:this.headers})
+    .subscribe(
+      res=>{
+        this.getAll();
+        return res.json();
+      },
+      err=>{
+        console.log(err);
+        return err;
+      })
   }
 
   getAll(){
-    // return certo abaixo
-    // return this.livros;
-    //return para teste
-    return this.livrosTemp;
-    // this.http.get(`${BASE_LINK}`,{headers: this.headers}).map(
-    //   res=>{
-    //   return res.json();
-    // },err=>{
-    //   return err;
-    // })
+    return this.http.get(`${BASE_LINK}${LIVRO_URN}/`,{headers: this.headers}).map(res=> res.json())
+    .subscribe( res => {
+      this.livros = res;  
+      console.log(this.livros);
+    })
   }
 
-  getLivroByName(){
-    let l;
-    for (let i = 0; i < this.livros.length; i++) {
-      const l = this.livros[i];
-    }
-    return l;
+  deletLivroByName(id: number){
+    this.http.delete(`${BASE_LINK}${LIVRO_URN}/${id}`,{ headers:this.headers})
+    .subscribe(res=>{
+      this.getAll();
+      return res;
+    },
+    err=>{
+      return err;
+    })
   }
-
-  deletLivroByName(nome: string){
-    let l;
-    for (let i = 0; i < this.livros.length; i++) {
-      if(nome === this.livros[i].nome){
-        l = this.livros[i].nome;
-      }else{
-        l = 'Livro não encontrado!'; 
-      }
-    }
-    return l;
-  }
-
 }
