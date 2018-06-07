@@ -17,7 +17,6 @@ export class CadastraAlunoComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.aluno);
     this.service.post(this.aluno);
     this.aluno = new Aluno();
   }

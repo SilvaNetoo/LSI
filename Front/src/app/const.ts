@@ -1,1 +1,1 @@
-export const BASE_LINK = '';
+export const BASE_LINK = 'http://192.168.34.33:8080';
