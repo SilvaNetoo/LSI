@@ -1,9 +1,13 @@
 package gerenciadorDeBiblioteca.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Aluno {
@@ -14,6 +18,8 @@ public class Aluno {
 	private String nome;
 	private String email;
 	private String senha;
+	//@OneToMany(mappedBy="aluno")
+	//private List<Livro> meusLivros;
 	
 	
 	public Aluno() {
@@ -25,6 +31,7 @@ public class Aluno {
 		this.nome=nome;
 		this.email=email;
 		this.senha=senha;
+		//this.meusLivros = new ArrayList<Livro>();
 		
 	}
 
@@ -65,7 +72,20 @@ public class Aluno {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	/*public List<Livro> getMeusLivros() {
+		return meusLivros;
+	}
+
+	public void setMeusLivros(List<Livro> meusLivros) {
+		this.meusLivros = meusLivros;
+	}
 	
+	public void locarLivro(Livro livro) {
+		
+		this.meusLivros.add(livro);
+	}
+	*/
 	
 	
 }
