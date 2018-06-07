@@ -13,13 +13,8 @@ export class LoginFuncionarioComponent implements OnInit {
 
   usuarios = [
     {
-      nome:'funcionario1',
-      email:'funcionario1@email1.com',
-      senha:'123456'
-    },
-    {
-      nome:'funcionario2',
-      email:'funcionario2@email2.com',
+      nome:'funcionario',
+      email:'funcionario@email.com',
       senha:'123456'
     }
   ]

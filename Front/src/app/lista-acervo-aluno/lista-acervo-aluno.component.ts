@@ -12,8 +12,6 @@ export class ListaAcervoAlunoComponent implements OnInit {
   livros;
 
   constructor(private servico: AppLivroService) {
-    this.livros = servico.getAll();
-    console.log(this.livros)
   }
 
   ngOnInit() {

@@ -14,9 +14,9 @@
       <th scope="col">Autor</th>
     </thead>
     <tbody>
-      <tr *ngFor="let item of servico.livrosTemp; let i = index">
-          <td class="centraliza-icones">{{item.nome}}</td>
-        <td class="centraliza-icones">{{i}}</td>
+      <tr *ngFor="let item of servico.livros; let i = index">
+        <td class="centraliza-icones">{{item.nome}}</td>
+        <td class="centraliza-icones">{{item.id}}</td>
         <td class="centraliza-icones">{{item.isbn}}</td>
         <td class="centraliza-icones">{{item.autor}}</td>
       </tr>

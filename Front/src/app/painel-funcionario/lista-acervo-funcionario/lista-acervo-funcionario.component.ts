@@ -8,10 +8,7 @@ import { AppLivroService } from '../../providers/app-livro.service';
 })
 export class ListaAcervoFuncionarioComponent implements OnInit {
 
-  livros;
-
   constructor(private servico: AppLivroService) {
-    this.livros = servico.getAll();
   }
 
   ngOnInit() {

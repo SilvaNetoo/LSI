@@ -1,6 +1,5 @@
 .dashbord {
     margin-top: .5%;
-    width: 80%;
     background-color: #fff;
     height: 550px;
 }
@@ -32,7 +31,6 @@ tr:nth-child(even) {
     background-color: #fff;
 }
 th{
-    width: 100%;
     border-top: none;
     color: #43A2B4
 }
@@ -48,8 +46,7 @@ span :focus{
 }
 .editar-tamanho{
     width: 18px;
-    margin-left: 39%;
-    margin-right: 61%;
+    margin-left: 9%;
 }
 #botao-fechar{
     background-color: #065463;

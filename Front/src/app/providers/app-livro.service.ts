@@ -1,95 +1,52 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { Livro } from './../models/livro.model';
+import { BASE_LINK } from '../const';
+
+const LIVRO_URN = '/livros';
 
 @Injectable()
 export class AppLivroService {
 
-  contador: number = 0;
+  contador:number = 0;
   livros: Array<Livro> = new Array<Livro>();
-
-  //Array de livros mocado para testes
-  livrosTemp = [
-    {
-      autor: 'Tanenbaum',
-      isbn: '435435',
-      nome:'Sistemas operacionais modernos'
-    },
-    {
-      autor: 'Coulouris',
-      isbn: '321321',
-      nome:'Sistemas distribuídos'
-    },
-    {
-      autor: 'Daniel Abella',
-      isbn: '099843',
-      nome:'Arrochado e avexado metodologia ágil'
-    },
-    {
-      autor: 'Paolo Coelho',
-      isbn: '099843',
-      nome:'O Alquimista'
-    },
-    {
-      autor: 'Jorge Amado',
-      isbn: '099843',
-      nome:'Mar Morto'
-    }
-  ]
 
   headers: Headers = new Headers({'Content-Type':'application/json'});
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) {
+    this.getAll();
+  }
 
   post(livro:Livro){
     livro.id = this.contador++;
-    this.livros.push(livro);
-
-    // WEB
-    // this.http.post(`${BASE_LINK}`,livro,{headers:this.headers}).map(
-    //   res=>{
-    //     return res.json();
-    //   },
-    //   err=>{
-    //     return err;
-    //   })
+    return this.http.post(`${BASE_LINK}${LIVRO_URN}/`,livro,{headers:this.headers})
+    .subscribe(
+      res=>{
+        this.getAll();
+        return res.json();
+      },
+      err=>{
+        console.log(err);
+        return err;
+      })
   }
 
   getAll(){
-    // return correto abaixo
-    // return this.livros;
-    // return temporário
-    return this.livros;
-    // WEB
-    // this.http.get(`${BASE_LINK}`,{headers: this.headers}).map(
-    //   res=>{
-    //   return res.json();
-    // },err=>{
-    //   return err;
-    // })
+    return this.http.get(`${BASE_LINK}${LIVRO_URN}/`,{headers: this.headers}).map(res=> res.json())
+    .subscribe( res => {
+      this.livros = res;  
+      console.log(this.livros);
+    })
   }
 
   deletLivroByName(id: number){
-    let l;
-    for (let i = 0; i < this.livros.length; i++) {
-      if(id == this.livros[i].id){
-        const index: number = this.livros.indexOf(this.livros[i]);
-        if (index !== -1) {
-          this.livros.splice(index, 1);
-        }  
-      }else{
-        l = 'Usuário não encontrado!';
-      }
-    }
-    return l;
-
-    // //Web
-    // this.http.delete(`${BASE_LINK}/${email}`,{ headers:this.headers })
-    // .map(res=>{
-    //   return res.json();
-    // },
-    // err=>{
-    //   return err;
-    // })
+    this.http.delete(`${BASE_LINK}${LIVRO_URN}/${id}`,{ headers:this.headers})
+    .subscribe(res=>{
+      this.getAll();
+      return res;
+    },
+    err=>{
+      return err;
+    })
   }
 }

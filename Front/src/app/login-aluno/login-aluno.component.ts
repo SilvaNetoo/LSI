@@ -14,13 +14,8 @@ export class LoginAlunoComponent implements OnInit {
 
   usuarios = [
     {
-      nome:'aluno1',
-      email:'aluno1@email.com',
-      senha:'123456'
-    },
-    {
-      nome:'aluno2',
-      email:'aluno2@email.com',
+      nome:'aluno',
+      email:'aluno@email.com',
       senha:'123456'
     }
   ]

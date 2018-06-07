@@ -9,11 +9,17 @@
   <table class="table">
     <thead>
       <th scope="col">Nome do livro</th>
+      <th scope="col">ID</th>
+      <th scope="col">Isbn</th>
+      <th scope="col">Autor</th>
       <th scope="col">Locar</th>
     </thead>
     <tbody>
-      <tr *ngFor="let item of livros">
+      <tr *ngFor="let item of servico.livros">
         <td class="centraliza-icones">{{item.nome}}</td>
+        <td class="centraliza-icones">{{item.id}}</td>
+        <td class="centraliza-icones">{{item.isbn}}</td>
+        <td class="centraliza-icones">{{item.autor}}</td>
         <td>
           <a id="botao-icones">
             <img class="editar-tamanho" routerLink="./excluir-livro" [queryParams]="{key:item.id}" data-toggle="modal" data-target="#exampleModal" src="assets/delet.svg" alt="">

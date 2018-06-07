@@ -32,7 +32,6 @@ tr:nth-child(even) {
     background-color: #fff;
 }
 th{
-    width: 100%;
     border-top: none;
     color: #43A2B4
 }

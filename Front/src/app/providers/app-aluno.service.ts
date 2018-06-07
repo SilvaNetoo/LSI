@@ -5,7 +5,6 @@ import { Headers, Http, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Usuario } from './../models/usuario.model';
 
-//Usar essa constante para as URN mas só após o código estar rodando certinho.
 const ALUNO_URN = '/alunos';
 
 @Injectable()
@@ -17,7 +16,7 @@ export class AppAlunoService {
   headers: Headers = new Headers({'Content-Type':'application/json'});
 
   constructor(private http: Http) {
-    
+    this.getAll();
   }
 
   post(aluno:Aluno){
@@ -25,7 +24,7 @@ export class AppAlunoService {
     return this.http.post(`${BASE_LINK}${ALUNO_URN}/`,aluno,{headers:this.headers})
     .subscribe(
       res=>{
-        console.log(res);
+        this.getAll();
         return res.json();
       },
       err=>{
@@ -35,18 +34,18 @@ export class AppAlunoService {
   }
 
   getAll(){
-    return this.http.get(`${BASE_LINK}${ALUNO_URN}/`,{headers: this.headers}).map(
-      res=>{
-      return res.json();
-    },err=>{
-      return err;
+    return this.http.get(`${BASE_LINK}${ALUNO_URN}/`,{headers: this.headers}).map(res=> res.json())
+    .subscribe( res => {
+      console.log('chegou no get')
+      this.alunos = res;  
+      console.log(this.alunos);
     })
   }
 
   deletUsuarioByName(id: number){
     this.http.delete(`${BASE_LINK}${ALUNO_URN}/${id}`,{ headers:this.headers})
     .subscribe(res=>{
-      console.log(res);
+      this.getAll();
       return res;
     },
     err=>{

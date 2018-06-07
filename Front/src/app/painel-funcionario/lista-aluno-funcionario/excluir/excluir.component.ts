@@ -18,6 +18,7 @@ export class ExcluirComponent implements OnInit {
       (queryParams:any)=>{
         if(queryParams){
           this.usuarioId = queryParams['key'];
+          console.log(this.usuarioId);
           // this.usuario = findUser(usuarioKey)
         }
       }
@@ -28,7 +29,6 @@ export class ExcluirComponent implements OnInit {
   }
 
   excluirUser(){
-    console.log('Id passado na url '+ this.usuarioId)
     this.servico.deletUsuarioByName(this.usuarioId);
   }
 

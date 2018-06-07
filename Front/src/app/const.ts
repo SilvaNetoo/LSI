@@ -1,1 +1,1 @@
-export const BASE_LINK = 'http://192.168.34.33:8080';
+export const BASE_LINK = 'http://localhost:8090';
